@@ -1,0 +1,77 @@
+/* Container layout */
+.Container {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  background: #e63946; /* Pokédex red */
+  min-height: 100vh;
+  color: #fff;
+  font-family: "Press Start 2P", cursive, sans-serif; /* pixel font vibe */
+}
+
+/* Left column: Pokémon list */
+.PokemonName {
+  flex: 1;
+  background: #2d2d2d;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.dexText {
+  padding: 0.5rem 1rem;
+  margin: 0.3rem 0;
+  border-radius: 8px;
+  background: #3a3a3a;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.dexText:hover {
+  background: #4caf50;
+  transform: scale(1.05);
+}
+
+/* Right column: Pokémon details */
+.PokedexEntry {
+  flex: 2;
+  background: #f1faee;
+  color: #000;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.PokedexEntry h1 {
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.PokedexEntry img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 1rem auto;
+  display: block;
+  image-rendering: pixelated; /* makes sprites look retro */
+}
+
+.PokedexEntry p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* Scrollbar styling */
+.PokemonName::-webkit-scrollbar {
+  width: 8px;
+}
+
+.PokemonName::-webkit-scrollbar-thumb {
+  background: #4caf50;
+  border-radius: 8px;
+}
