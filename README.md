@@ -10,13 +10,13 @@ A simple Pokédex app built with **React** that lets you explore Pokémon data s
 
 ## 🛠️ Tech Stack
 - **Frontend:** React (Vite or CRA)  
-- **Styling:** CSS / Tailwind (optional)  
+- **Styling:** CSS 
 - **API:** [PokéAPI](https://pokeapi.co/)  
 
 ## 📦 Installation
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/pokedex.git
+git clone https://github.com/Paddu08/pokedex.git
 cd pokedex
 npm install
