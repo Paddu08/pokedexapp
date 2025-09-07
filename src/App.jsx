@@ -10,17 +10,26 @@ function App() {
     setDexData(json.results)
 
   }
-  const [currPokemon,setCurrPokemon]=useState(0)
+
+  const [currPokemon,setCurrPokemon]=useState(null)
 
   const [currPokemonData,setCurrPokemonData]=useState([])
+  const [cache,setCache]=useState({})
   useEffect(()=>{
     getData() // data for 151 pokemon
   },[])
 const getCurrPokemon= async ()=>{
   if(!currPokemon)return 
+   const key = currPokemon.name;
+  if(cache[currPokemon]){
+    setCurrPokemonData(cache[currPokemon])
+    
+  }
+
   const data=await fetch(currPokemon.url)
   const json=await data.json()
   setCurrPokemonData(json)
+  setCache((prev)=>({...prev,[key]:json}))
 
 }
  useEffect(()=>{
