@@ -13,6 +13,7 @@ function App() {
 
   const [currPokemon,setCurrPokemon]=useState(null)
 
+
   const [currPokemonData,setCurrPokemonData]=useState([])
   const [cache,setCache]=useState({})
   useEffect(()=>{
@@ -20,9 +21,11 @@ function App() {
   },[])
 const getCurrPokemon= async ()=>{
   if(!currPokemon)return 
-   const key = currPokemon.name;
-  if(cache[currPokemon]){
-    setCurrPokemonData(cache[currPokemon])
+   const key = currPokemon?.name;
+  if(cache[key]){
+    setCurrPokemonData(cache[key])
+    console.log("from cahce",cache)
+    return
     
   }
 
@@ -35,7 +38,6 @@ const getCurrPokemon= async ()=>{
  useEffect(()=>{
    getCurrPokemon()// data for selected pokemon
   },[currPokemon])
-    console.log(currPokemonData)
   return (
     <div className='Container'>
       <div className='PokemonName'>
@@ -46,10 +48,15 @@ const getCurrPokemon= async ()=>{
       ))}
 </div>
 <div className='PokedexEntry'>
-{!currPokemonData ? (<>Select a pokemon </>):(
+{currPokemonData?.length==0 ? (<div className=''>Select a pokemon </div>):(
   <div>
    <h1>{currPokemonData?.name}</h1>
+   <div className='img-container'>  
+      <img src={currPokemonData?.sprites?.front_default} title='normal'/>
+      
+
    <img src={currPokemonData?.sprites?.front_shiny}/>
+   </div>
   
    </div>
 )
