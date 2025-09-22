@@ -24,10 +24,12 @@ const getCurrPokemon= async ()=>{
    const key = currPokemon?.name;
   if(cache[key]){
     setCurrPokemonData(cache[key])
-    console.log("from cahce",cache)
+    
     return
     
   }
+
+  
 
   const data=await fetch(currPokemon.url)
   const json=await data.json()
@@ -35,6 +37,18 @@ const getCurrPokemon= async ()=>{
   setCache((prev)=>({...prev,[key]:json}))
 
 }
+
+const getDataTest=async()=>{
+  const data=await fetch("http://localhost:5678/webhook-test/24f6778e-a469-41bb-bd99-58d3b66c345e")
+  const json=await data.json()
+  console.log(json)
+
+}
+useEffect(()=>{
+  getDataTest()
+  
+},[])
+
  useEffect(()=>{
    getCurrPokemon()// data for selected pokemon
   },[currPokemon])
